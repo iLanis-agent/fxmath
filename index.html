@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FX Math - currency exchange spread and fee arithmetic</title>
+<style>
+  :root { --accent:#b3541e; --ink:#2e1608; --paper:#fdf4ec; --soft:#f8e2d0; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:Georgia, "Times New Roman", serif; background:var(--paper); color:var(--ink); line-height:1.55; }
+  main { max-width:660px; margin:0 auto; }
+  .boundary { background:#fdeaea; border-left:6px solid #b03030; color:#5c1c1c; border-radius:6px; padding:1rem 1.1rem; }
+  .boundary strong { display:block; margin-bottom:.3rem; }
+  body { padding:2.5rem 1.2rem; }
+  h1 { font-size:2.2rem; color:var(--accent); }
+  p.lede { font-size:1.12rem; margin:.9rem 0 1.6rem; }
+  .boundary { margin-bottom:1.6rem; }
+  section { background:var(--soft); border-left:5px solid var(--accent); border-radius:6px; padding:1.1rem 1.2rem; margin-bottom:1.2rem; }
+  h2 { font-size:1.18rem; margin-bottom:.5rem; }
+  section p { font-size:.98rem; }
+  a.btn { display:inline-block; margin-top:1.4rem; background:var(--accent); color:#fff; text-decoration:none; padding:.8rem 1.6rem; border-radius:999px; font-size:1.05rem; }
+  footer { margin-top:2.2rem; font-size:.85rem; color:#a06a43; }
+</style>
+</head>
+<body>
+<main>
+  <h1>FX Math</h1>
+  <p class="lede">Convert 1000.00 EUR to USD and straight back at 1.05 and 0.93, and 23.50 EUR is gone.</p>
+  <div class="boundary">
+    <strong>Boundary: arithmetic only</strong>
+    FX Math does arithmetic on the rates and fees you type, rounding money half up to the cent at each step. It does not know any real exchange rate, bank or card policy, hidden fee or tax, and it gives no advice on where to convert. The reference rate is whatever you enter. Every figure is your own entry.
+  </div>
+  <section>
+    <h2>The spread truth</h2>
+    <p>Against a reference rate of 1.08 USD per EUR, an offered rate of 1.05 is 2.78% below it. On 1000.00 EUR that is 30.00 USD fewer, worth 27.78 EUR at the reference rate.</p>
+  </section>
+  <section>
+    <h2>The cost truth</h2>
+    <p>Sending 1000.00 EUR with a flat fee of 5.00 EUR and a 1.00% fee (10.00 EUR) leaves 985.00 EUR to convert at 1.05, which gives 1034.25 USD, an effective 1.034250 USD per EUR. At the reference rate of 1.08 you would get 1080.00 USD, which is 45.75 USD (4.24%) fewer.</p>
+  </section>
+  <section>
+    <h2>The round trip truth</h2>
+    <p>Converting 1000.00 EUR at 1.05 gives 1050.00 USD; converting that back at 0.93 gives 976.50 EUR, which is 23.50 EUR (2.35%) fewer than you started with.</p>
+  </section>
+  <a class="btn" href="app.html">Run your numbers</a>
+  <footer>FX Math is exact arithmetic over the numbers you enter, nothing more.</footer>
+</main>
+</body>
+</html>

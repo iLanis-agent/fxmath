@@ -1,0 +1,798 @@
+[
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1.08",
+   "1.05",
+   "1000"
+  ],
+  "expected": "Against a reference rate of 1.08 USD per EUR, an offered rate of 1.05 is 2.78% below it. On 1000.00 EUR that is 30.00 USD fewer, worth 27.78 EUR at the reference rate."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1.08",
+   "1.08",
+   "1000"
+  ],
+  "expected": "Against a reference rate of 1.08 USD per EUR, an offered rate of 1.08 is the same, so on 1000.00 EUR nothing is lost or gained."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1.08",
+   "1.10",
+   "1000"
+  ],
+  "expected": "Against a reference rate of 1.08 USD per EUR, an offered rate of 1.1 is 1.85% above it. On 1000.00 EUR that is 20.00 USD more, worth 18.52 EUR at the reference rate."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "eur",
+   " usd ",
+   "1.0800",
+   "1.0500",
+   "1000.00"
+  ],
+  "expected": "Against a reference rate of 1.08 USD per EUR, an offered rate of 1.05 is 2.78% below it. On 1000.00 EUR that is 30.00 USD fewer, worth 27.78 EUR at the reference rate."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "USD",
+   "JPY",
+   "150.25",
+   "148.9",
+   "250.50"
+  ],
+  "expected": "Against a reference rate of 150.25 JPY per USD, an offered rate of 148.9 is 0.90% below it. On 250.50 USD that is 338.18 JPY fewer, worth 2.25 USD at the reference rate."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "JPY",
+   "USD",
+   "0.0067",
+   "0.0065",
+   "100000"
+  ],
+  "expected": "Against a reference rate of 0.0067 USD per JPY, an offered rate of 0.0065 is 2.99% below it. On 100000.00 JPY that is 20.00 USD fewer, worth 2985.07 JPY at the reference rate."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1.08",
+   "1.079999",
+   "0.01"
+  ],
+  "expected": "Against a reference rate of 1.08 USD per EUR, an offered rate of 1.079999 is 0.00% below it. On 0.01 EUR that is 0.00 USD fewer, worth 0.00 EUR at the reference rate."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "999999",
+   "0.000001",
+   "999999999999"
+  ],
+  "expected": "Against a reference rate of 999999 USD per EUR, an offered rate of 0.000001 is 100.00% below it. On 999999999999.00 EUR that is 999998999998000001.00 USD fewer, worth 999999999998.00 EUR at the reference rate."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1",
+   "0.5",
+   "10"
+  ],
+  "expected": "Against a reference rate of 1 USD per EUR, an offered rate of 0.5 is 50.00% below it. On 10.00 EUR that is 5.00 USD fewer, worth 5.00 EUR at the reference rate."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1",
+   "2",
+   "10"
+  ],
+  "expected": "Against a reference rate of 1 USD per EUR, an offered rate of 2 is 100.00% above it. On 10.00 EUR that is 10.00 USD more, worth 10.00 EUR at the reference rate."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "3",
+   "2.99",
+   "333.33"
+  ],
+  "expected": "Against a reference rate of 3 USD per EUR, an offered rate of 2.99 is 0.33% below it. On 333.33 EUR that is 3.33 USD fewer, worth 1.11 EUR at the reference rate."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "GBP",
+   "EUR",
+   "1.1654",
+   "1.1301",
+   "2500"
+  ],
+  "expected": "Against a reference rate of 1.1654 EUR per GBP, an offered rate of 1.1301 is 3.03% below it. On 2500.00 GBP that is 88.25 EUR fewer, worth 75.73 GBP at the reference rate."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1.08",
+   "1.05",
+   "0.01"
+  ],
+  "expected": "Against a reference rate of 1.08 USD per EUR, an offered rate of 1.05 is 2.78% below it. On 0.01 EUR that is 0.00 USD fewer, worth 0.00 EUR at the reference rate."
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "0",
+   "1.05",
+   "1000"
+  ],
+  "expected": "ERR:rate must be a number above 0 and up to 999999 with at most 6 decimals"
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1.08",
+   "0",
+   "1000"
+  ],
+  "expected": "ERR:rate must be a number above 0 and up to 999999 with at most 6 decimals"
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1.08",
+   "1.05",
+   "0"
+  ],
+  "expected": "ERR:amount must be a number above 0 and up to 999999999999 with at most 2 decimals"
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1.08",
+   "1.05",
+   "-5"
+  ],
+  "expected": "ERR:amount must be a number above 0 and up to 999999999999 with at most 2 decimals"
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1.0000001",
+   "1.05",
+   "5"
+  ],
+  "expected": "ERR:rate must be a number above 0 and up to 999999 with at most 6 decimals"
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "EUR",
+   "1.08",
+   "1.05",
+   "5"
+  ],
+  "expected": "ERR:the two currencies must differ"
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EU",
+   "USD",
+   "1.08",
+   "1.05",
+   "5"
+  ],
+  "expected": "ERR:currency codes must be three letters"
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "US1",
+   "1.08",
+   "1.05",
+   "5"
+  ],
+  "expected": "ERR:currency codes must be three letters"
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "x",
+   "1.05",
+   "5"
+  ],
+  "expected": "ERR:rate must be a number above 0 and up to 999999 with at most 6 decimals"
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1.08",
+   "1.05",
+   "x"
+  ],
+  "expected": "ERR:amount must be a number above 0 and up to 999999999999 with at most 2 decimals"
+ },
+ {
+  "fn": "spreadTruth",
+  "args": [
+   "",
+   "",
+   "1",
+   "1",
+   "1"
+  ],
+  "expected": "ERR:currency codes must be three letters"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.05",
+   "5",
+   "1",
+   "1.08"
+  ],
+  "expected": "Sending 1000.00 EUR with a flat fee of 5.00 EUR and a 1.00% fee (10.00 EUR) leaves 985.00 EUR to convert at 1.05, which gives 1034.25 USD, an effective 1.034250 USD per EUR. At the reference rate of 1.08 you would get 1080.00 USD, which is 45.75 USD (4.24%) fewer."
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.08",
+   "0",
+   "0",
+   "1.08"
+  ],
+  "expected": "Sending 1000.00 EUR with a flat fee of 0.00 EUR and a 0.00% fee (0.00 EUR) leaves 1000.00 EUR to convert at 1.08, which gives 1080.00 USD, an effective 1.080000 USD per EUR. At the reference rate of 1.08 you would get 1080.00 USD, the same amount."
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.10",
+   "0",
+   "0",
+   "1.08"
+  ],
+  "expected": "Sending 1000.00 EUR with a flat fee of 0.00 EUR and a 0.00% fee (0.00 EUR) leaves 1000.00 EUR to convert at 1.1, which gives 1100.00 USD, an effective 1.100000 USD per EUR. At the reference rate of 1.08 you would get 1080.00 USD, which is 20.00 USD (1.85%) more."
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.08",
+   "0",
+   "1",
+   "1.08"
+  ],
+  "expected": "Sending 1000.00 EUR with a flat fee of 0.00 EUR and a 1.00% fee (10.00 EUR) leaves 990.00 EUR to convert at 1.08, which gives 1069.20 USD, an effective 1.069200 USD per EUR. At the reference rate of 1.08 you would get 1080.00 USD, which is 10.80 USD (1.00%) fewer."
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "200",
+   "1.0725",
+   "3.99",
+   "0.5",
+   "1.0801"
+  ],
+  "expected": "Sending 200.00 EUR with a flat fee of 3.99 EUR and a 0.50% fee (1.00 EUR) leaves 195.01 EUR to convert at 1.0725, which gives 209.15 USD, an effective 1.045750 USD per EUR. At the reference rate of 1.0801 you would get 216.02 USD, which is 6.87 USD (3.18%) fewer."
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "50",
+   "1.05",
+   "4.5",
+   "2.5",
+   "1.08"
+  ],
+  "expected": "Sending 50.00 EUR with a flat fee of 4.50 EUR and a 2.50% fee (1.25 EUR) leaves 44.25 EUR to convert at 1.05, which gives 46.46 USD, an effective 0.929200 USD per EUR. At the reference rate of 1.08 you would get 54.00 USD, which is 7.54 USD (13.96%) fewer."
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "0.05",
+   "1.05",
+   "0.01",
+   "0",
+   "1.08"
+  ],
+  "expected": "Sending 0.05 EUR with a flat fee of 0.01 EUR and a 0.00% fee (0.00 EUR) leaves 0.04 EUR to convert at 1.05, which gives 0.04 USD, an effective 0.800000 USD per EUR. At the reference rate of 1.08 you would get 0.05 USD, which is 0.01 USD (20.00%) fewer."
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.05",
+   "0",
+   "20",
+   "1.08"
+  ],
+  "expected": "Sending 1000.00 EUR with a flat fee of 0.00 EUR and a 20.00% fee (200.00 EUR) leaves 800.00 EUR to convert at 1.05, which gives 840.00 USD, an effective 0.840000 USD per EUR. At the reference rate of 1.08 you would get 1080.00 USD, which is 240.00 USD (22.22%) fewer."
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.05",
+   "0",
+   "20.01",
+   "1.08"
+  ],
+  "expected": "ERR:percent fee must be from 0 to 20 with at most 2 decimals"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "10",
+   "1.05",
+   "10",
+   "0",
+   "1.08"
+  ],
+  "expected": "ERR:the fees are as large as the amount or larger"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "10",
+   "1.05",
+   "9.99",
+   "0",
+   "1.08"
+  ],
+  "expected": "Sending 10.00 EUR with a flat fee of 9.99 EUR and a 0.00% fee (0.00 EUR) leaves 0.01 EUR to convert at 1.05, which gives 0.01 USD, an effective 0.001000 USD per EUR. At the reference rate of 1.08 you would get 10.80 USD, which is 10.79 USD (99.91%) fewer."
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "10",
+   "1.05",
+   "20",
+   "0",
+   "1.08"
+  ],
+  "expected": "ERR:the fees are as large as the amount or larger"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "USD",
+   "JPY",
+   "12345.67",
+   "148.375",
+   "7.25",
+   "1.25",
+   "149.1"
+  ],
+  "expected": "Sending 12345.67 USD with a flat fee of 7.25 USD and a 1.25% fee (154.32 USD) leaves 12184.10 USD to convert at 148.375, which gives 1807815.84 JPY, an effective 146.433190 JPY per USD. At the reference rate of 149.1 you would get 1840739.40 JPY, which is 32923.56 JPY (1.79%) fewer."
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "JPY",
+   "USD",
+   "500000",
+   "0.006612",
+   "1500",
+   "0.75",
+   "0.00667"
+  ],
+  "expected": "Sending 500000.00 JPY with a flat fee of 1500.00 JPY and a 0.75% fee (3750.00 JPY) leaves 494750.00 JPY to convert at 0.006612, which gives 3271.29 USD, an effective 0.006543 USD per JPY. At the reference rate of 0.00667 you would get 3335.00 USD, which is 63.71 USD (1.91%) fewer."
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.05",
+   "-1",
+   "1",
+   "1.08"
+  ],
+  "expected": "ERR:flat fee must be a number from 0 with at most 2 decimals"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.05",
+   "x",
+   "1",
+   "1.08"
+  ],
+  "expected": "ERR:flat fee must be a number from 0 with at most 2 decimals"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.05",
+   "5",
+   "x",
+   "1.08"
+  ],
+  "expected": "ERR:percent fee must be from 0 to 20 with at most 2 decimals"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "0",
+   "5",
+   "1",
+   "1.08"
+  ],
+  "expected": "ERR:rate must be a number above 0 and up to 999999 with at most 6 decimals"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.05",
+   "5",
+   "1",
+   "0"
+  ],
+  "expected": "ERR:rate must be a number above 0 and up to 999999 with at most 6 decimals"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "0",
+   "1.05",
+   "5",
+   "1",
+   "1.08"
+  ],
+  "expected": "ERR:amount must be a number above 0 and up to 999999999999 with at most 2 decimals"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "EUR",
+   "1000",
+   "1.05",
+   "5",
+   "1",
+   "1.08"
+  ],
+  "expected": "ERR:the two currencies must differ"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EURO",
+   "USD",
+   "1000",
+   "1.05",
+   "5",
+   "1",
+   "1.08"
+  ],
+  "expected": "ERR:currency codes must be three letters"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.05",
+   "5.123",
+   "1",
+   "1.08"
+  ],
+  "expected": "ERR:flat fee must be a number from 0 with at most 2 decimals"
+ },
+ {
+  "fn": "costTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.05",
+   "5",
+   "1.005",
+   "1.08"
+  ],
+  "expected": "ERR:percent fee must be from 0 to 20 with at most 2 decimals"
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.05",
+   "0.93"
+  ],
+  "expected": "Converting 1000.00 EUR at 1.05 gives 1050.00 USD; converting that back at 0.93 gives 976.50 EUR, which is 23.50 EUR (2.35%) fewer than you started with."
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.05",
+   "0.952380952"
+  ],
+  "expected": "ERR:rate must be a number above 0 and up to 999999 with at most 6 decimals"
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1",
+   "1"
+  ],
+  "expected": "Converting 1000.00 EUR at 1 gives 1000.00 USD; converting that back at 1 gives 1000.00 EUR, exactly what you started with."
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "1000",
+   "1.05",
+   "0.96"
+  ],
+  "expected": "Converting 1000.00 EUR at 1.05 gives 1050.00 USD; converting that back at 0.96 gives 1008.00 EUR, which is 8.00 EUR (0.80%) more than you started with."
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "100",
+   "1.08",
+   "0.9259"
+  ],
+  "expected": "Converting 100.00 EUR at 1.08 gives 108.00 USD; converting that back at 0.9259 gives 100.00 EUR, exactly what you started with."
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "0.01",
+   "1.05",
+   "0.93"
+  ],
+  "expected": "Converting 0.01 EUR at 1.05 gives 0.01 USD; converting that back at 0.93 gives 0.01 EUR, exactly what you started with."
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "USD",
+   "JPY",
+   "5000",
+   "149.5",
+   "0.00665"
+  ],
+  "expected": "Converting 5000.00 USD at 149.5 gives 747500.00 JPY; converting that back at 0.00665 gives 4970.88 USD, which is 29.12 USD (0.58%) fewer than you started with."
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "999999999999",
+   "999999",
+   "0.000001"
+  ],
+  "expected": "Converting 999999999999.00 EUR at 999999 gives 999998999999000001.00 USD; converting that back at 0.000001 gives 999998999999.00 EUR, which is 1000000.00 EUR (0.00%) fewer than you started with."
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "250.75",
+   "1.0712",
+   "0.9301"
+  ],
+  "expected": "Converting 250.75 EUR at 1.0712 gives 268.60 USD; converting that back at 0.9301 gives 249.82 EUR, which is 0.93 EUR (0.37%) fewer than you started with."
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "333.33",
+   "3",
+   "0.3333"
+  ],
+  "expected": "Converting 333.33 EUR at 3 gives 999.99 USD; converting that back at 0.3333 gives 333.30 EUR, which is 0.03 EUR (0.01%) fewer than you started with."
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "10",
+   "0.5",
+   "2"
+  ],
+  "expected": "Converting 10.00 EUR at 0.5 gives 5.00 USD; converting that back at 2 gives 10.00 EUR, exactly what you started with."
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "10",
+   "0.5",
+   "2.01"
+  ],
+  "expected": "Converting 10.00 EUR at 0.5 gives 5.00 USD; converting that back at 2.01 gives 10.05 EUR, which is 0.05 EUR (0.50%) more than you started with."
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "0",
+   "1.05",
+   "0.93"
+  ],
+  "expected": "ERR:amount must be a number above 0 and up to 999999999999 with at most 2 decimals"
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "10",
+   "0",
+   "0.93"
+  ],
+  "expected": "ERR:rate must be a number above 0 and up to 999999 with at most 6 decimals"
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "10",
+   "1.05",
+   "0"
+  ],
+  "expected": "ERR:rate must be a number above 0 and up to 999999 with at most 6 decimals"
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "10",
+   "1.05",
+   "x"
+  ],
+  "expected": "ERR:rate must be a number above 0 and up to 999999 with at most 6 decimals"
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "EUR",
+   "10",
+   "1.05",
+   "0.93"
+  ],
+  "expected": "ERR:the two currencies must differ"
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "",
+   "10",
+   "1.05",
+   "0.93"
+  ],
+  "expected": "ERR:currency codes must be three letters"
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "10.999",
+   "1.05",
+   "0.93"
+  ],
+  "expected": "ERR:amount must be a number above 0 and up to 999999999999 with at most 2 decimals"
+ },
+ {
+  "fn": "roundTruth",
+  "args": [
+   "EUR",
+   "USD",
+   "10",
+   "1.0000001",
+   "0.93"
+  ],
+  "expected": "ERR:rate must be a number above 0 and up to 999999 with at most 6 decimals"
+ }
+]

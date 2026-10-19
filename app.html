@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FX Math - app</title>
+<style>
+  :root { --accent:#b3541e; --ink:#2e1608; --paper:#fdf4ec; --soft:#f8e2d0; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:Georgia, "Times New Roman", serif; background:var(--paper); color:var(--ink); line-height:1.55; }
+  main { max-width:660px; margin:0 auto; }
+  .boundary { background:#fdeaea; border-left:6px solid #b03030; color:#5c1c1c; border-radius:6px; padding:1rem 1.1rem; }
+  .boundary strong { display:block; margin-bottom:.3rem; }
+  body { padding:2rem 1.2rem; }
+  h1 { font-size:1.8rem; color:var(--accent); }
+  .boundary { margin:1rem 0 1.4rem; }
+  .panel { background:var(--soft); border-left:5px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; margin-bottom:1.1rem; }
+  h2 { font-size:1.1rem; margin-bottom:.6rem; }
+  p.note { font-size:.9rem; margin-bottom:.4rem; }
+  label { display:block; font-size:.9rem; margin:.45rem 0 .1rem; }
+  input, select { width:100%; padding:.45rem .55rem; font-size:1rem; border:1px solid #e5b896; border-radius:6px; background:#fff; color:var(--ink); }
+    .row2 { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+  .out { margin-top:.7rem; font-size:.98rem; background:#fff; border:1px dashed #e5b896; border-radius:6px; padding:.6rem .7rem; min-height:2.4rem; overflow-wrap:anywhere; }
+  .out.err { border-color:#b03030; color:#8a1f1f; }
+  footer { margin-top:1.8rem; font-size:.85rem; color:#a06a43; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>FX Math</h1>
+  <div class="boundary">
+    <strong>Boundary: arithmetic only</strong>
+    This page does arithmetic on the rates and fees you type, rounding money half up to the cent at each step. It does not know any real exchange rate, bank or card policy, hidden fee or tax, and it gives no advice on where to convert. The reference rate is whatever you enter. Every figure is your own entry.
+  </div>
+
+  <div class="panel">
+    <h2>The spread truth</h2>
+    <p class="note">How far an offered rate sits from a reference rate, on a sum. Rates are units of the second currency per 1 of the first.</p>
+    <div class="row2">
+      <div><label for="s-f">From currency</label><input id="s-f" type="text" value="EUR"></div>
+      <div><label for="s-t">To currency</label><input id="s-t" type="text" value="USD"></div>
+      <div><label for="s-r">Reference rate</label><input id="s-r" type="text" value="1.08"></div>
+      <div><label for="s-o">Offered rate</label><input id="s-o" type="text" value="1.05"></div>
+      <div><label for="s-a">Amount</label><input id="s-a" type="text" value="1000"></div>
+    </div>
+    <div class="out" id="s-out"></div>
+  </div>
+
+  <div class="panel">
+    <h2>The cost truth</h2>
+    <p class="note">Fees and rate together, taken from the amount you send, against what the reference rate would give.</p>
+    <div class="row2">
+      <div><label for="c-f">From currency</label><input id="c-f" type="text" value="EUR"></div>
+      <div><label for="c-t">To currency</label><input id="c-t" type="text" value="USD"></div>
+      <div><label for="c-a">Amount</label><input id="c-a" type="text" value="1000"></div>
+      <div><label for="c-r">Rate</label><input id="c-r" type="text" value="1.05"></div>
+      <div><label for="c-fl">Flat fee</label><input id="c-fl" type="text" value="5"></div>
+      <div><label for="c-p">Percent fee</label><input id="c-p" type="text" value="1"></div>
+      <div><label for="c-ref">Reference rate</label><input id="c-ref" type="text" value="1.08"></div>
+    </div>
+    <div class="out" id="c-out"></div>
+  </div>
+
+  <div class="panel">
+    <h2>The round trip truth</h2>
+    <p class="note">Convert out and straight back at the two rates you enter (the second is units of the first currency per 1 of the second).</p>
+    <div class="row2">
+      <div><label for="r-f">From currency</label><input id="r-f" type="text" value="EUR"></div>
+      <div><label for="r-t">To currency</label><input id="r-t" type="text" value="USD"></div>
+      <div><label for="r-a">Amount</label><input id="r-a" type="text" value="1000"></div>
+      <div><label for="r-o">Rate out</label><input id="r-o" type="text" value="1.05"></div>
+      <div><label for="r-b">Rate back</label><input id="r-b" type="text" value="0.93"></div>
+    </div>
+    <div class="out" id="r-out"></div>
+  </div>
+
+  <footer>FX Math is exact arithmetic over the numbers you enter. <a href="index.html">Why it exists</a>.</footer>
+</main>
+<script src="engine.js"></script>
+<script>
+  function show(id, fn) {
+    const out = document.getElementById(id);
+    try { out.textContent = fn(); out.classList.remove("err"); }
+    catch (e) { out.textContent = e.message; out.classList.add("err"); }
+  }
+  function recalc() {
+    const v = (id) => document.getElementById(id).value;
+    show("s-out", () => spreadTruth(v("s-f"), v("s-t"), v("s-r"), v("s-o"), v("s-a")));
+    show("c-out", () => costTruth(v("c-f"), v("c-t"), v("c-a"), v("c-r"), v("c-fl"), v("c-p"), v("c-ref")));
+    show("r-out", () => roundTruth(v("r-f"), v("r-t"), v("r-a"), v("r-o"), v("r-b")));
+  }
+  document.querySelectorAll("input, select").forEach((el) => {
+    el.addEventListener("input", recalc);
+    el.addEventListener("change", recalc);
+  });
+  recalc();
+</script>
+</body>
+</html>
